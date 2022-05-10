@@ -48,6 +48,7 @@ module "app_runner" {
 	app_runner_image = { identifier = "${module.ecr.ecr_repository_url}:${local.image_tag}",
 						 role = module.iam_roles["ecr"].iam_role.arn }
 	app_runner_custom_domains = var.custom_domains
+	app_runner_environment_variables = var.environment_variables
 	app_runner_tags = var.tags
 }
 

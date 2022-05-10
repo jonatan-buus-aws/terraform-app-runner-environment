@@ -10,8 +10,13 @@ variable "image" {
 }
 variable "repository" {
     type = string
-    default = "app-runner"
+    default = "app-runner-repository"
     description = "The name of the container repository that will be created in ECR."
+}
+variable "environment_variables" {
+    type = map(string)
+    default = { "LOG_LEVEL" = "INFO" }
+    description = "List of key / value pairs defining the environment variables for the provisioned App Runner Service"
 }
 variable "custom_domains" {
     type = list(string)
@@ -20,6 +25,6 @@ variable "custom_domains" {
 }
 variable "tags" {
     type = map(string)
-    default = { "env" = "danske-bank" }
+    default = { "env" = "app-runner" }
     description = "List of key / value pairs defining the tags for the provisioned infrastructure"
 }
